@@ -2,6 +2,7 @@ import request from 'supertest';
 import app from '../lib/app.js';
 import pool from '../lib/utils/pool.js';
 import setup from '../data/setup.js';
+import Favorite from '../lib/models/Favorite.js';
 
 const delicateDependency = {
   title: 'The Delicate Dependency',
@@ -25,6 +26,15 @@ describe('favorite routes', () => {
       id: '1',
       ...delicateDependency
     });
+  });
+
+  it('gets a dollhouse by id via GET', async () => {
+    const testBook = await Favorite.insert(delicateDependency);
+
+    const res = await request(app)
+      .get(`/api/v1/favorites/${testBook.id}`);
+    
+    expect(res.body).toEqual(delicateDependency);
   });
 
 });
