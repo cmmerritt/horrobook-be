@@ -54,4 +54,20 @@ describe('favorite routes', () => {
     expect(res.body).toEqual([testBook1, testBook2]);
   });
 
+  it('updates dollhouse by id via PUT', async () => {
+    const testBook = await Favorite.insert(castle);
+
+    const updatedTestBook = {
+      title: 'We Have Always Lived in the Castle',
+      author: 'Shirley Jackson',
+      imageUrl: 'imageurl2',
+      infoUrl: 'infourl',
+      pubDate: '1962-09-21'
+    };
+
+    const res = await (await request(app).put(`/api/v1/favorites/${testBook.id}`)).setEncoding(updatedTestBook);
+
+    expect(res.body).toEqual({ 'id': '1', ...updatedTestBook });
+  });
+
 });
