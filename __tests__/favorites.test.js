@@ -65,7 +65,7 @@ describe('favorite routes', () => {
       pubDate: '1962-09-21'
     };
 
-    const res = await (await request(app).put(`/api/v1/favorites/${testBook.id}`)).setEncoding(updatedTestBook);
+    const res = await request(app).put(`/api/v1/favorites/${testBook.id}`).send(updatedTestBook);
 
     expect(res.body).toEqual({ 'id': '1', ...updatedTestBook });
   });
