@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS favorites CASCADE;
+
+CREATE TABLE favorites (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  title TEXT NOT NULL,
+  author TEXT NOT NULL,
+  image_url TEXT NOT NULL,
+  info_url TEXT NOT NULL,
+  pub_date TEXT NOT NULL
+);
