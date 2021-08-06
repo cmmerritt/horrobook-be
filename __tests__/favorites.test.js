@@ -70,4 +70,9 @@ describe('favorite routes', () => {
     expect(res.body).toEqual({ 'id': '1', ...updatedTestBook });
   });
 
+  it('deletes favorite by id via DELETE', async () => {
+    const testBook = await Favorite.insert(castle);
+    const res = await request(app).delete(`/api/v1/favorites/${testBook.id}`);
+    expect(res.body).toEqual(testBook);
+  });
 });
