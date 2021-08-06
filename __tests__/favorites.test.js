@@ -34,7 +34,7 @@ describe('favorite routes', () => {
     const res = await request(app)
       .get(`/api/v1/favorites/${testBook.id}`);
     
-    expect(res.body).toEqual(delicateDependency);
+    expect(res.body).toEqual(testBook);
   });
 
 });
