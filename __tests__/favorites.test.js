@@ -7,13 +7,11 @@ import Favorite from '../lib/models/Favorite.js';
 const frankenstein = {
   title: 'Frankenstein : the 1818 text, contexts, criticism',
   author: 'shelley, mary wollstonecraft',
-  locId: '2021012938'
 };
 
 const videogames = {
   title: 'Videogames and the gothic',
   author: 'kirkland, ewan',
-  locId: '2021015392'
 };
 
 describe('favorite routes', () => {
@@ -56,7 +54,6 @@ describe('favorite routes', () => {
     const updatedTestBook = {
       title: 'Video games and the gothic',
       author: 'kirkland, ewan',
-      locId: '2021015392'
     };
 
     const res = await request(app).put(`/api/v1/favorites/${testBook.id}`).send(updatedTestBook);
