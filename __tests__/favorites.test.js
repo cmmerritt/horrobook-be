@@ -19,7 +19,7 @@ describe('favorite routes', () => {
     return setup(pool);
   });
 
-  it('creates a favorites entry via POST', async() => {
+  it.only('creates a favorites entry via POST', async() => {
     const res = await request(app)
       .post('/api/v1/favorites')
       .send(frankenstein);
